@@ -1,0 +1,45 @@
+<div class="mt-2">
+    <h2><i class="bi bi-list-task"></i> Tareas</h2>
+    
+    <div class="card shadow-sm mt-4">
+        <div class="card-header">Formulario</div>
+        <div class="card-body">
+            
+            <div class="mb-3">
+                <label for="" class="form-label ">Mensaje </label>
+                <input class="form-control ml-3" type="text" value="" [(ngModel)]="mensaje">
+                
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Fecha</label>
+                <input class="form-control" type="date" value="" [(ngModel)]="fecha">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Importancia</label>
+                <input class="form-control" type="number" value="" [(ngModel)]="gradoImportancia">
+            </div>
+            
+                
+            <div class="input-group-append pt-2">
+                <button class="btn btn-primary" (click)="crearTarea()">
+                    <i class="bi bi-list-task"></i> Crear tarea
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="list-group m-4">
+    <h3>Lista de tareas pendientes</h3>
+    <app-todo class="list-group-item" *ngFor="let tarea of tareas" [tarea]="tarea"
+        (tareaOutput)="recibirTareaCompletada($event)"
+    >
+    </app-todo>
+</div>
+
+<div class="list-group m-4">
+    <h3>Lista de tareas completadas</h3>
+    <app-todo class="list-group-item" *ngFor="let tarea of completadas" [tarea]="tarea"
+        (tareaOutput)="recibirTareaCompletada($event)">
+    </app-todo>
+</div>

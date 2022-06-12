@@ -1,0 +1,13 @@
+<div [@animaciones]='state' [style.background]="getColor()" class="alert">
+    <div>
+        <div>
+            {{tarea.mensaje}}
+        </div>
+        <div>
+            {{tarea.fecha}}
+        </div>
+        <button class="btn btn-primary float-right" (click)="completar()">
+            {{tarea.completada == true ? 'Eliminar' : 'Pasar a completadas'}} 
+        </button>
+    </div>
+</div>
